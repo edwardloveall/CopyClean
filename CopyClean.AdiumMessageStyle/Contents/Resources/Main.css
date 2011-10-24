@@ -1,0 +1,217 @@
+/*sender colors:
+  red
+  blue
+  gray
+  magenta
+  violet
+  olive
+  yellowgreen
+  darkred
+  darkgreen
+  darksalmon
+  darkcyan
+  mediumpurple
+  peru
+  olivedrab
+  darkorange
+  slateblue
+  slategray
+  goldenrod
+  orangered
+  tomato
+  dodgerblue
+  steelblue
+  deeppink
+  saddlebrown
+  coral
+  royalblue
+*/
+
+/*
+Grey:
+border-top: 1px solid #fff;
+border-bottom: 1px solid #d8d8d8;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eee), color-stop(100%,#fff));
+text-shadow: 1px 1px white, -1px -1px #ddd;
+
+Green:
+border-top: 1px solid #F4FFDE;
+border-bottom: 1px solid #C3D1AB;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EBF9D9), color-stop(100%, #DFF3C7));
+text-shadow: 1px 1px #DFF8A2, -1px -1px #F1FFB4;
+
+Red:
+border-top: 1px solid #FAD5D5;
+border-bottom: 1px solid #C29A9A;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F3CFCF), color-stop(100%, #EABABA));
+
+Yellow:
+border-top: 1px solid #FFFFD1;
+border-bottom: 1px solid #C7C796;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F8F8CC), color-stop(100%, #EFEFB4));
+text-shadow: 1px 1px #FFFEC6, -1px -1px #ddd;
+
+Red:
+border-top: 1px solid #FAD5D5;
+border-bottom: 1px solid #C29A9A;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F3CFCF), color-stop(100%, #EABABA));
+text-shadow: 1px 1px #F8B9B9, -1px -1px #C5BABA;
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+  border: none;
+}
+
+html {
+  background: #333;
+}
+
+body {
+  background: transparent;
+}
+
+#chat {
+  border-top: 1px solid #888;
+  height: 100%;
+  background: #333;
+}
+
+span.textFormat {
+  color: transparent;
+  position: absolute;
+  left: 0;
+}
+
+*::selection {
+  text-shadow: none;
+  background-color: #bbb;
+}
+
+.messageWrapper {
+  position: relative;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #d8d8d8;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eee), color-stop(100%,#fff));
+  text-shadow: 1px 1px white, -1px -1px #ddd;
+}
+
+.messageWrapper.status {
+  border-top: 1px solid #F4FFDE;
+  border-bottom: 1px solid #C3D1AB;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EBF9D9), color-stop(100%, #DFF3C7));
+  text-align: center;
+  text-shadow: none;
+}
+
+.messageWrapper.status.error, .messageWrapper.status.timed_out, .messageWrapper.status.contact_left, .messageWrapper.status.offline {
+  border-top: 1px solid #FAD5D5;
+  border-bottom: 1px solid #C29A9A;
+/*  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F3CFCF), color-stop(100%, #EABABA));*/
+  background: url(/Users/edwardloveall/Desktop/stripe.png);
+}
+
+.messageWrapper.topic, .messageWrapper.event {
+  border-top: 1px solid #CAEBFF;
+  border-bottom: 1px solid #86A6BC;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #C2E2F7), color-stop(100%, #A9D2EE));
+  text-align: center;
+  text-shadow: 1px 1px #BFE6FF, -1px -1px #ddd;
+/*  text-shadow: none;*/
+}
+
+.messageWrapper.mention {
+  border-top: 1px solid #CDC3FF;
+  border-bottom: 1px solid #897FBF;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #DCD6FB), color-stop(100%, #BEB4F2));
+  text-shadow: none;
+}
+
+.messageWrapper.status .time {
+  padding-right: .5em;
+}
+
+.status span, .event span {
+/*  opacity: 0.5;*/
+}
+
+a {
+  text-shadow: none;
+}
+
+.messageWrapper.connected.event {
+  border-top: 1px solid #F4FFDE;
+  border-bottom: 1px solid #C3D1AB;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EBF9D9), color-stop(100%, #DFF3C7));
+  text-shadow: 1px 1px #DFF8A2, -1px -1px #F1FFB4;
+}
+
+.messageWrapper.disconnected.event {
+  border-top: 1px solid #FAD5D5;
+  border-bottom: 1px solid #C29A9A;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F3CFCF), color-stop(100%, #EABABA));
+  text-shadow: 1px 1px #F8B9B9, -1px -1px #F4B0B1;
+}
+
+#Chat>.messageWrapper {
+  
+}
+
+#chat>.messageWrapper.event {
+  border-left: none;
+}
+
+.messageWrapper > .incoming, .messageWrapper>.outgoing, .messageWrapper.status, .messageWrapper.event {
+  padding: 0.5em;
+}
+
+body>.messageWrapper:first-child>.message {
+  border-top: 1px solid #d8d8d8;
+}
+
+.messageWrapper span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.messageWrapper .inner.action > span.sender {
+  visibility: hidden;
+}
+
+.messageWrapper .inner.action span.actionMessageUserName {
+  display: none;
+}
+
+.messageWrapper .inner.action > span {
+/*  display: inline;*/
+}
+
+.time {
+  width: 4em;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.colorDot {
+  width: 5px;
+  height: 5px;
+  margin: 3px 1em 0 0;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.2);
+/*  box-shadow:inset 0 -1px 1px rgba(0,0,0,0.2), 0 0 3px RoyalBlue;*/
+}
+
+.mention .colorDot {
+  box-shadow:inset 0 -1px 1px rgba(0,0,0,0.2), 0 0 3px white !important;
+}
+
+.sender {
+  font-weight: bold;
+  text-shadow: none;
+  padding: 0 1em 0 .5em;
+  width: 9em;
+  overflow: hidden;
+  text-align: right;
+}
