@@ -70,7 +70,10 @@ html {
 }
 
 body {
-  background: transparent;
+  /*
+    Lion's scrollbar color changes from light to dark depending on what color the background image is. Most of this style is light, but the background before it fills up is dark, creating a light scrollbar on light background. I used a gradient combined with a solid color to prevent the light scrollbar and keep the dark background. Hack.
+  */
+  background: #fff -webkit-gradient(linear, left top, right top, color-stop(0%,#333333), color-stop(100%,#333333));
 }
 
 #chat {
@@ -82,7 +85,7 @@ body {
 span.textFormat {
   color: transparent;
   position: absolute;
-  left: 0;
+  text-shadow: none;
 }
 
 *::selection {
@@ -90,7 +93,7 @@ span.textFormat {
   background-color: #bbb;
 }
 
-.messageWrapper {
+.messageWrapper { /* default message */
   position: relative;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #d8d8d8;
@@ -110,7 +113,7 @@ span.textFormat {
   border-top: 1px solid #FAD5D5;
   border-bottom: 1px solid #C29A9A;
 /*  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F3CFCF), color-stop(100%, #EABABA));*/
-  background: url(/Users/edwardloveall/Desktop/stripe.png);
+  background: url(images/stripe.png);
 }
 
 .messageWrapper.topic, .messageWrapper.event {
@@ -129,18 +132,6 @@ span.textFormat {
   text-shadow: none;
 }
 
-.messageWrapper.status .time {
-  padding-right: .5em;
-}
-
-.status span, .event span {
-/*  opacity: 0.5;*/
-}
-
-a {
-  text-shadow: none;
-}
-
 .messageWrapper.connected.event {
   border-top: 1px solid #F4FFDE;
   border-bottom: 1px solid #C3D1AB;
@@ -153,6 +144,19 @@ a {
   border-bottom: 1px solid #C29A9A;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F3CFCF), color-stop(100%, #EABABA));
   text-shadow: 1px 1px #F8B9B9, -1px -1px #F4B0B1;
+}
+
+.messageWrapper.status .time {
+  padding-right: .5em;
+}
+
+.status span, .event span {
+/*  opacity: 0.5;*/
+}
+
+a {
+  text-shadow: none;
+  color: #0080FF;
 }
 
 #Chat>.messageWrapper {
@@ -174,6 +178,8 @@ body>.messageWrapper:first-child>.message {
 .messageWrapper span {
   display: inline-block;
   vertical-align: top;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .messageWrapper .inner.action > span.sender {
@@ -189,28 +195,28 @@ body>.messageWrapper:first-child>.message {
 }
 
 .time {
-  width: 4em;
   text-align: center;
-  opacity: 0.7;
+  opacity: 0.5;
+  display: none;
 }
 
 .colorDot {
-  width: 5px;
-  height: 5px;
-  margin: 3px 1em 0 0;
-  border-radius: 4px;
+  width: .5em;
+  height: .5em;
+  margin-top: .3em;
+  border-radius: 1em;
   border: 1px solid rgba(0,0,0,0.2);
 /*  box-shadow:inset 0 -1px 1px rgba(0,0,0,0.2), 0 0 3px RoyalBlue;*/
 }
 
 .mention .colorDot {
-  box-shadow:inset 0 -1px 1px rgba(0,0,0,0.2), 0 0 3px white !important;
+  border: 1px solid rgba(0,0,0,0.4);
 }
 
 .sender {
   font-weight: bold;
   text-shadow: none;
-  padding: 0 1em 0 .5em;
+/*  padding: 0 1em 0 .5em;*/
   width: 9em;
   overflow: hidden;
   text-align: right;
