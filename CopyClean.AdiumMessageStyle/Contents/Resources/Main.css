@@ -56,6 +56,12 @@ border-top: 1px solid #FAD5D5;
 border-bottom: 1px solid #C29A9A;
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F3CFCF), color-stop(100%, #EABABA));
 text-shadow: 1px 1px #F8B9B9, -1px -1px #C5BABA;
+
+Blue:
+border-top: 1px solid #CAEBFF;
+border-bottom: 1px solid #86A6BC;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #C2E2F7), color-stop(100%, #A9D2EE));
+text-shadow: 1px 1px #BFE6FF, -1px -1px #9BBDDB;
 */
 
 * {
@@ -63,6 +69,9 @@ text-shadow: 1px 1px #F8B9B9, -1px -1px #C5BABA;
   margin: 0;
   font-weight: normal;
   border: none;
+  
+/*  word-wrap: normal !important;*/
+  text-rendering: optimizelegibility;
 }
 
 html {
@@ -93,7 +102,7 @@ span.textFormat {
   background-color: #bbb;
 }
 
-.messageWrapper { /* default message */
+.messageWrapper { /* Grey */
   position: relative;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #d8d8d8;
@@ -101,7 +110,7 @@ span.textFormat {
   text-shadow: 1px 1px white, -1px -1px #ddd;
 }
 
-.messageWrapper.status {
+.messageWrapper.status { /* Green */
   border-top: 1px solid #F4FFDE;
   border-bottom: 1px solid #C3D1AB;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EBF9D9), color-stop(100%, #DFF3C7));
@@ -109,37 +118,36 @@ span.textFormat {
   text-shadow: none;
 }
 
-.messageWrapper.status.error, .messageWrapper.status.timed_out, .messageWrapper.status.contact_left, .messageWrapper.status.offline {
+.messageWrapper.status.error, .messageWrapper.status.timed_out, .messageWrapper.status.contact_left, .messageWrapper.status.offline { /* Red with Stripes */
   border-top: 1px solid #FAD5D5;
   border-bottom: 1px solid #C29A9A;
-/*  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F3CFCF), color-stop(100%, #EABABA));*/
   background: url(images/stripe.png);
 }
 
-.messageWrapper.topic, .messageWrapper.event {
+.messageWrapper.topic, .messageWrapper.event { /* Blue */
   border-top: 1px solid #CAEBFF;
   border-bottom: 1px solid #86A6BC;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #C2E2F7), color-stop(100%, #A9D2EE));
+  text-shadow: 1px 1px #BFE6FF, -1px -1px #9BBDDB;
   text-align: center;
-  text-shadow: 1px 1px #BFE6FF, -1px -1px #ddd;
 /*  text-shadow: none;*/
 }
 
-.messageWrapper.mention {
+.messageWrapper.mention { /* Purple */
   border-top: 1px solid #CDC3FF;
   border-bottom: 1px solid #897FBF;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #DCD6FB), color-stop(100%, #BEB4F2));
   text-shadow: none;
 }
 
-.messageWrapper.connected.event {
+.messageWrapper.connected.event { /* Green */
   border-top: 1px solid #F4FFDE;
   border-bottom: 1px solid #C3D1AB;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EBF9D9), color-stop(100%, #DFF3C7));
   text-shadow: 1px 1px #DFF8A2, -1px -1px #F1FFB4;
 }
 
-.messageWrapper.disconnected.event {
+.messageWrapper.disconnected.event { /* Red */
   border-top: 1px solid #FAD5D5;
   border-bottom: 1px solid #C29A9A;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F3CFCF), color-stop(100%, #EABABA));
@@ -175,7 +183,7 @@ body>.messageWrapper:first-child>.message {
   border-top: 1px solid #d8d8d8;
 }
 
-.messageWrapper span {
+.message>span {
   display: inline-block;
   vertical-align: top;
   margin-left: 0.5em;
@@ -214,10 +222,16 @@ body>.messageWrapper:first-child>.message {
 }
 
 .sender {
-  font-weight: bold;
-  text-shadow: none;
 /*  padding: 0 1em 0 .5em;*/
   width: 9em;
   overflow: hidden;
   text-align: right;
+  word-wrap: normal !important;
+}
+
+.sender>span {
+  display: block;
+  width:inherit;
+  font-weight: bold;
+  text-shadow: none;
 }

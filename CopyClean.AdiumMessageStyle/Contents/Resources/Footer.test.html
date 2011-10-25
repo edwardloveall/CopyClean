@@ -1,0 +1,21 @@
+<script type="text/javascript" charset="utf-8">
+  window.onload = function() {
+    senders = document.getElementsByClassName('sender');
+    for(x in senders) {
+      senders[x].onmouseover = expand;
+      senders[x].onmouseout = contract;
+      // console.log(senders[x].innerText)
+    }
+  }
+  
+  function expand (e) {
+    if (true) {
+      
+    };
+    e.target.style.width = "auto";
+  }
+
+  function contract (e) {
+    e.target.style.width = null;
+  }
+</script>
