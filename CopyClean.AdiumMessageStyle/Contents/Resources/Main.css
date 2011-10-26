@@ -119,7 +119,7 @@ span.textFormat {
   text-shadow: none;
 }
 
-.messageWrapper.status.error, .messageWrapper.status.timed_out, .messageWrapper.status.contact_left, .messageWrapper.status.offline { /* Red with Stripes */
+.messageWrapper.status.error, .messageWrapper.status.timed_out, .messageWrapper.status.contact_left { /* Red with Stripes */
   border-top: 1px solid #FAD5D5;
   border-bottom: 1px solid #C29A9A;
   background: url(images/stripe.png);
@@ -148,7 +148,7 @@ span.textFormat {
   text-shadow: 1px 1px #DFF8A2, -1px -1px #F1FFB4;
 }
 
-.messageWrapper.disconnected.event { /* Red */
+.messageWrapper.disconnected.event, .messageWrapper.status.offline { /* Red */
   border-top: 1px solid #FAD5D5;
   border-bottom: 1px solid #C29A9A;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F3CFCF), color-stop(100%, #EABABA));
@@ -209,8 +209,13 @@ body>.messageWrapper:first-child>.message {
   display: none;
 }
 
-.messageText {
+.messageWrapper .firstFocus {
+  border-top: 2px solid red;
+}
+
+.messageWrapper .messageText {
   position: relative;
+  display: inline;
 }
 
 .colorDot {
