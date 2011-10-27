@@ -111,7 +111,7 @@ span.textFormat {
   text-shadow: 1px 1px white, -1px -1px #eee;
 }
 
-.messageWrapper.status { /* Green */
+.messageWrapper.status { /* Yellow */
   border-top: 1px solid #FFFFD1;
   border-bottom: 1px solid #C7C796;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F8F8CC), color-stop(100%, #EFEFB4));
@@ -182,16 +182,20 @@ body>.messageWrapper:first-child>.message {
   border-top: 1px solid #d8d8d8;
 }
 
-.messageWrapper .inner.action > span.sender {
-  visibility: hidden;
+.messageWrapper.action {
+  text-align: center;
 }
 
-.messageWrapper .inner.action span.actionMessageUserName {
+.messageWrapper .inner.action > .sender {
   display: none;
 }
 
-.messageWrapper .inner.action > span {
-/*  display: inline;*/
+.actionMessageUserName::after {
+  content: "\00a0";
+}
+
+.actionMessageBody::before, .actionMessageBody::after {
+  content: "" !important;
 }
 
 .message>span {
@@ -207,16 +211,23 @@ body>.messageWrapper:first-child>.message {
   display: none;
 }
 
-* .firstFocus {
-/*  border-top: 1px solid #FCE3C3;
-  border-bottom: 1px solid #B89F7F;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F2DABC), color-stop(100%, #E8C8A0));
-  text-shadow: 1px 1px #FBDDB6, -1px -1px #ddd;
-*/}
+.mark {
+  height: 2px;
+  width: 100%;
+  background: red;
+  position: relative;
+  top: -1px;
+  float: left;
+  z-index: 500;
+}
 
 .messageWrapper .messageTextWrapper {
   position: relative;
   display: inline-block;
+}
+
+.messageTextWrapper>.messageText {
+  vertical-align: top;
 }
 
 .colorDotWrapper {
@@ -239,7 +250,9 @@ body>.messageWrapper:first-child>.message {
 .message>span.sender {
   font-weight: bold;
   text-shadow: none;
-  width: 9em;
+/*  width: 9em;*/
+  min-width: 9em;
+  max-width: 9em;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -247,6 +260,6 @@ body>.messageWrapper:first-child>.message {
   word-wrap: normal !important;
 }
 
-.message:hover>span.sender:hover {
-/*  width: auto;*/
+.message>span.sender:hover {
+  max-width: inherit;
 }
