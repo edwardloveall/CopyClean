@@ -112,11 +112,11 @@ span.textFormat {
 }
 
 .messageWrapper.status { /* Green */
-  border-top: 1px solid #F4FFDE;
-  border-bottom: 1px solid #C3D1AB;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EBF9D9), color-stop(100%, #DFF3C7));
+  border-top: 1px solid #FFFFD1;
+  border-bottom: 1px solid #C7C796;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F8F8CC), color-stop(100%, #EFEFB4));
+  text-shadow: 1px 1px #FFFEC6, -1px -1px #ddd;
   text-align: center;
-  text-shadow: none;
 }
 
 .messageWrapper.status.error, .messageWrapper.status.timed_out, .messageWrapper.status.contact_left { /* Red with Stripes */
@@ -168,15 +168,12 @@ a {
   color: #0080FF;
 }
 
-#Chat>.messageWrapper {
-  
-}
-
 #chat>.messageWrapper.event {
   border-left: none;
 }
 
-.messageWrapper > .incoming, .messageWrapper>.outgoing, .messageWrapper.status, .messageWrapper.event {
+.messageWrapper .inner, .messageWrapper.status, .messageWrapper.event {
+  position: relative;
   padding: 0.5em;
 }
 
@@ -209,16 +206,24 @@ body>.messageWrapper:first-child>.message {
   display: none;
 }
 
-.messageWrapper .firstFocus {
-  border-top: 2px solid red;
+* .firstFocus {
+/*  border-top: 1px solid #FCE3C3;
+  border-bottom: 1px solid #B89F7F;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F2DABC), color-stop(100%, #E8C8A0));
+  text-shadow: 1px 1px #FBDDB6, -1px -1px #ddd;
+*/}
+
+.messageWrapper .messageTextWrapper {
+  position: relative;
+  display: inline-block;
 }
 
-.messageWrapper .messageText {
-  position: relative;
-  display: inline;
+.colorDotWrapper {
+  top-padding: .5em;
 }
 
 .colorDot {
+  display: block;
   width: .5em;
   height: .5em;
   margin-top: .3em;
