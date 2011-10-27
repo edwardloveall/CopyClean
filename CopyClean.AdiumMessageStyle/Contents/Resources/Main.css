@@ -115,7 +115,7 @@ span.textFormat {
   border-top: 1px solid #FFFFD1;
   border-bottom: 1px solid #C7C796;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F8F8CC), color-stop(100%, #EFEFB4));
-  text-shadow: 1px 1px #C7FF96, -1px -1px #ddd;
+  text-shadow: 1px 1px #FFFEC6, -1px -1px #ddd;
   text-align: center;
 }
 
@@ -141,11 +141,12 @@ span.textFormat {
   text-shadow: none;
 }
 
-.messageWrapper.connected.event { /* Green */
+.messageWrapper.connected.event, .messageWrapper.status.online { /* Green */
   border-top: 1px solid #F4FFDE;
   border-bottom: 1px solid #C3D1AB;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EBF9D9), color-stop(100%, #DFF3C7));
-  text-shadow: 1px 1px #DFF8A2, -1px -1px #F1FFB4;
+  text-shadow: 1px 1px #DFF8A2, -1px -1px #ddd;
+/*  text-shadow: 1px 1px #C7FF96, -1px -1px #ddd;*/
 }
 
 .messageWrapper.disconnected.event, .messageWrapper.status.offline { /* Red */
@@ -181,13 +182,6 @@ body>.messageWrapper:first-child>.message {
   border-top: 1px solid #d8d8d8;
 }
 
-.message>span {
-  display: inline-block;
-  vertical-align: top;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-}
-
 .messageWrapper .inner.action > span.sender {
   visibility: hidden;
 }
@@ -198,6 +192,13 @@ body>.messageWrapper:first-child>.message {
 
 .messageWrapper .inner.action > span {
 /*  display: inline;*/
+}
+
+.message>span {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .time {
@@ -235,12 +236,17 @@ body>.messageWrapper:first-child>.message {
   border: 1px solid rgba(0,0,0,0.4);
 }
 
-.sender {
-/*  padding: 0 1em 0 .5em;*/
+.message>span.sender {
   font-weight: bold;
   text-shadow: none;
   width: 9em;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   text-align: right;
   word-wrap: normal !important;
+}
+
+.message:hover>span.sender:hover {
+/*  width: auto;*/
 }
