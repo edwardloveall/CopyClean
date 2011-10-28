@@ -108,10 +108,10 @@ span.textFormat {
   border-bottom: 1px solid #d8d8d8;
 /*  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eee), color-stop(100%,#fff));*/
   background: #fff;
-  text-shadow: 1px 1px white, -1px -1px #ddd;
+  text-shadow: 1px 1px white, -1px -1px #eee;
 }
 
-.messageWrapper.status { /* Green */
+.messageWrapper.status { /* Yellow */
   border-top: 1px solid #FFFFD1;
   border-bottom: 1px solid #C7C796;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F8F8CC), color-stop(100%, #EFEFB4));
@@ -141,11 +141,12 @@ span.textFormat {
   text-shadow: none;
 }
 
-.messageWrapper.connected.event { /* Green */
+.messageWrapper.connected.event, .messageWrapper.status.online { /* Green */
   border-top: 1px solid #F4FFDE;
   border-bottom: 1px solid #C3D1AB;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EBF9D9), color-stop(100%, #DFF3C7));
-  text-shadow: 1px 1px #DFF8A2, -1px -1px #F1FFB4;
+  text-shadow: 1px 1px #DFF8A2, -1px -1px #ddd;
+/*  text-shadow: 1px 1px #C7FF96, -1px -1px #ddd;*/
 }
 
 .messageWrapper.disconnected.event, .messageWrapper.status.offline { /* Red */
@@ -166,6 +167,7 @@ span.textFormat {
 a {
   text-shadow: none;
   color: #0080FF;
+  vertical-align: top;
 }
 
 #chat>.messageWrapper.event {
@@ -181,30 +183,41 @@ body>.messageWrapper:first-child>.message {
   border-top: 1px solid #d8d8d8;
 }
 
-<<<<<<< HEAD
-.message>span {
-  display: inline-block;
-  vertical-align: top;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+.messageWrapper.topic {
+/*  position: fixed;*/
+  padding: 2em;
+  z-index: 100;
+  width: 100%;
+  box-shadow: 0 0 10px #000;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.2s ease-in;
 }
 
-.messageWrapper .inner.action > span.sender {
-  visibility: hidden;
-=======
+.messageWrapper.topic:hover {
+  opacity: 1;
+}
+
+.messageWrapper.history {
+  opacity: 0.5;
+  -webkit-transition: opacity 0.2s linear;
+}
+
+.messageWrapper.history:hover {
+  opacity: 0.8;
+}
+
 .messageWrapper.action {
   text-align: center;
->>>>>>> parent of 0bf6a58... Mostly committing so I can rollback to fix whatever error this is
 }
 
-.messageWrapper .inner.action span.actionMessageUserName {
+.messageWrapper .inner.action > .sender {
   display: none;
 }
 
-<<<<<<< HEAD
-.messageWrapper .inner.action > span {
-/*  display: inline;*/
-=======
+.actionMessageUserName {
+  display: inline !important;
+}
+
 .actionMessageUserName::after {
   content: "\00a0";
 }
@@ -218,7 +231,6 @@ body>.messageWrapper:first-child>.message {
   vertical-align: top;
   margin-left: 0.5em;
   margin-right: 0.5em;
->>>>>>> parent of 0bf6a58... Mostly committing so I can rollback to fix whatever error this is
 }
 
 .time {
@@ -227,16 +239,23 @@ body>.messageWrapper:first-child>.message {
   display: none;
 }
 
-* .firstFocus {
-/*  border-top: 1px solid #FCE3C3;
-  border-bottom: 1px solid #B89F7F;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F2DABC), color-stop(100%, #E8C8A0));
-  text-shadow: 1px 1px #FBDDB6, -1px -1px #ddd;
-*/}
+.mark {
+  height: 2px;
+  width: 100%;
+  background: red;
+  position: relative;
+  top: -1px;
+  float: left;
+  z-index: 500;
+}
 
 .messageWrapper .messageTextWrapper {
   position: relative;
   display: inline-block;
+}
+
+.messageTextWrapper>.messageText {
+  vertical-align: top;
 }
 
 .colorDotWrapper {
@@ -256,18 +275,18 @@ body>.messageWrapper:first-child>.message {
   border: 1px solid rgba(0,0,0,0.4);
 }
 
-.sender {
-/*  padding: 0 1em 0 .5em;*/
+.message>span.sender {
   font-weight: bold;
   text-shadow: none;
-<<<<<<< HEAD
-  width: 9em;
-=======
-/*  width: 9em;*/
   min-width: 9em;
   max-width: 9em;
->>>>>>> parent of 0bf6a58... Mostly committing so I can rollback to fix whatever error this is
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   text-align: right;
   word-wrap: normal !important;
+}
+
+.message>span.sender:hover {
+  max-width: inherit;
 }

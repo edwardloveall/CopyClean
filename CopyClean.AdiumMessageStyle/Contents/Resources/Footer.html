@@ -1,12 +1,22 @@
+<script type="text/javascript">
+ var body = document.getElementById("Chat");
+ body.addEventListener("DOMNodeInserted", function(e) {
+   if (!(e.originalTarget instanceof HTMLElement))
+     return;
+   var node = aEvent.originalTarget;
+   /* the node variable contains the inserted node,
+      do something useful with it */ 
+ }, false);
+</script>
 <script type="text/javascript" charset="utf-8">
-  window.onload = function() {
+  // window.onload = function() {
     senders = document.getElementsByClassName('sender');
     for(x in senders) {
       senders[x].onmouseover = expand;
       senders[x].onmouseout = contract;
       // console.log(senders[x].innerText)
     }
-  }
+  // }
   
   function expand (e) {
     if (true) {

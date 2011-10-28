@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleVersion</key>
-	<string>2.0</string>
+	<string>0.1</string>
 	<key>CFBundleGetInfoString</key>
 	<string>0.1</string>
 	<key>XtraBundleVersion</key>
@@ -14,13 +14,9 @@
 	<string>com.edwardloveall.CopyClean.style</string>
 	<key>CFBundleName</key>
 	<string>CopyClean</string>
-	<key>ShowsUserIcons:Compact</key>
-	<false/>
 	<key>DefaultFontFamily</key>
 	<string>Lucida Grande</string>
 	<key>DefaultFontSize</key>
 	<integer>10</integer>
-	<key>DefaultVariant</key>
-	<string>Icon-Time</string>
 </dict>
 </plist>
