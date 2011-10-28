@@ -1,2 +1,4 @@
 Add topic header
 Add firstFocus marker
+Add history styling
+Update status to have times

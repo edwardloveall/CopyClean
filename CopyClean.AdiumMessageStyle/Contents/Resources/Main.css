@@ -167,6 +167,7 @@ span.textFormat {
 a {
   text-shadow: none;
   color: #0080FF;
+  vertical-align: top;
 }
 
 #chat>.messageWrapper.event {
@@ -182,12 +183,39 @@ body>.messageWrapper:first-child>.message {
   border-top: 1px solid #d8d8d8;
 }
 
+.messageWrapper.topic {
+/*  position: fixed;*/
+  padding: 2em;
+  z-index: 100;
+  width: 100%;
+  box-shadow: 0 0 10px #000;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.2s ease-in;
+}
+
+.messageWrapper.topic:hover {
+  opacity: 1;
+}
+
+.messageWrapper.history {
+  opacity: 0.5;
+  -webkit-transition: opacity 0.2s linear;
+}
+
+.messageWrapper.history:hover {
+  opacity: 0.8;
+}
+
 .messageWrapper.action {
   text-align: center;
 }
 
 .messageWrapper .inner.action > .sender {
   display: none;
+}
+
+.actionMessageUserName {
+  display: inline !important;
 }
 
 .actionMessageUserName::after {
@@ -250,7 +278,6 @@ body>.messageWrapper:first-child>.message {
 .message>span.sender {
   font-weight: bold;
   text-shadow: none;
-/*  width: 9em;*/
   min-width: 9em;
   max-width: 9em;
   overflow: hidden;
