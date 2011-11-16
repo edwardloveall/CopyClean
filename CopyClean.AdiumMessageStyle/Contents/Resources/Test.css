@@ -163,19 +163,18 @@ body>.messageWrapper:first-child>.message {
   content: "" !important;
 }
 
+.message {
+  display: table-row;
+}
+
 .message * {
   vertical-align: top;
 }
 
-.message .time,
-.message .textFormat,
-.message .sender,
-.message .colorDot,
-.message .messageText {
+.message>span {
   display: inline-block;
   margin-left: 0.5em;
   margin-right: 0.5em;
-  line-height: 1.7em;
 }
 
 .time {
@@ -184,17 +183,29 @@ body>.messageWrapper:first-child>.message {
   display: none;
 }
 
-.message .messageText {
+.messageWrapper .messageText {
+  display: table-cell;
+}
+
+.message .messageTextWrapper {
   vertical-align: top;
   display: inline;
-/*  padding-left: 10em;*/
-  text-indent: -10em;
+}
+
+.messageText {
+  vertical-align: top;
+  line-height: 1.7em;
+}
+
+.colorDotWrapper {
+  top-padding: .5em;
 }
 
 .colorDot {
+  display: block;
   width: .5em;
   height: .5em;
-  margin-top: .5em;
+  margin-top: .3em;
   border-radius: 1em;
   border: 1px solid rgba(0,0,0,0.2);
 }
@@ -203,7 +214,7 @@ body>.messageWrapper:first-child>.message {
   border: 1px solid rgba(0,0,0,0.4);
 }
 
-.message .sender {
+.message>span.sender {
   font-weight: bold;
   text-shadow: none;
   min-width: 9em;
@@ -229,6 +240,14 @@ body>.messageWrapper:first-child>.message {
   border-bottom: 1px solid #d8d8d8;
   background: #fff;
   text-shadow: 1px 1px white, -1px -1px #eee;
+  display: table;
+}
+
+.messageWrapper .inner {
+  
+}
+.messageWrapper .inner:last-child {
+  
 }
 
 .messageWrapper.status { /* Yellow */
